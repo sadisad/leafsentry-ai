@@ -1,0 +1,4 @@
+{"target":"angular_leaf_spot","probabilities":{"angular_leaf_spot":0.91,"bean_rust":0.05,"healthy":0.04}}
+{"target":"bean_rust","probabilities":{"angular_leaf_spot":0.21,"bean_rust":0.70,"healthy":0.09}}
+{"target":"healthy","probabilities":{"angular_leaf_spot":0.10,"bean_rust":0.05,"healthy":0.85}}
+{"target":"bean_rust","probabilities":{"angular_leaf_spot":0.46,"bean_rust":0.48,"healthy":0.06}}
