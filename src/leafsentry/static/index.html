@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An uncertainty-aware bean leaf image triage engineering demo.">
+  <title>LeafSentry AI — Inspection Console</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <header class="topbar">
+    <div class="brand" aria-label="LeafSentry AI">
+      <span class="brand-mark" aria-hidden="true">LS</span>
+      <span>
+        <strong>LeafSentry</strong>
+        <small>inspection console</small>
+      </span>
+    </div>
+    <div class="model-state" id="model-state" role="status" aria-live="polite">
+      <span class="state-dot" aria-hidden="true"></span>
+      <span id="model-state-text">Checking model readiness</span>
+    </div>
+  </header>
+
+  <main id="workspace" class="workspace">
+    <section class="brief" aria-labelledby="page-title">
+      <p class="eyebrow">Selective computer vision</p>
+      <h1 id="page-title">Inspect a bean leaf.<br>Accept uncertainty.</h1>
+      <p class="lede">The system checks image quality first, then predicts only when confidence and class separation clear the policy thresholds.</p>
+      <dl class="scope-list">
+        <div><dt>Supported</dt><dd>Angular leaf spot, bean rust, healthy</dd></div>
+        <div><dt>Model</dt><dd>ViT, revision-pinned</dd></div>
+        <div><dt>Decision</dt><dd>Accepted or abstained</dd></div>
+      </dl>
+      <div class="boundary-note">
+        <strong>Scope boundary</strong>
+        <p>Educational engineering demo. This is not a field-validated diagnosis and provides no treatment recommendation.</p>
+      </div>
+    </section>
+
+    <section class="console" aria-labelledby="console-title">
+      <div class="console-head">
+        <div>
+          <p class="step-label">01 / Input</p>
+          <h2 id="console-title">Image inspection</h2>
+        </div>
+        <button type="button" class="text-button" id="reset-button" hidden>Reset</button>
+      </div>
+
+      <form id="upload-form" novalidate>
+        <label class="drop-zone" id="drop-zone" for="file-input">
+          <input id="file-input" name="file" type="file" accept="image/jpeg,image/png,image/webp" required>
+          <span class="drop-index" aria-hidden="true">+</span>
+          <span class="drop-title">Choose a leaf image</span>
+          <span class="drop-help">JPEG, PNG, or WebP · maximum 5 MB</span>
+        </label>
+        <div class="preview-shell" id="preview-shell" hidden>
+          <img id="preview-image" alt="Selected bean leaf preview">
+          <div class="preview-meta">
+            <span id="preview-name">Selected image</span>
+            <span id="preview-size"></span>
+          </div>
+        </div>
+        <button class="primary-button" id="inspect-button" type="submit" disabled>
+          <span>Run inspection</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <div class="message" id="message" aria-live="polite" role="status"></div>
+
+      <section class="result" id="result" aria-labelledby="result-title" tabindex="-1" hidden>
+        <div class="result-head">
+          <div>
+            <p class="step-label">02 / Decision</p>
+            <h3 id="result-title">Inspection result</h3>
+          </div>
+          <span class="decision-badge" id="decision-badge"></span>
+        </div>
+        <div class="decision-copy">
+          <p class="result-label" id="result-label"></p>
+          <p class="result-reason" id="result-reason"></p>
+        </div>
+        <div class="measure-grid" aria-label="Uncertainty measures">
+          <div><span>Confidence</span><strong id="confidence-value">—</strong></div>
+          <div><span>Top-two margin</span><strong id="margin-value">—</strong></div>
+          <div><span>Entropy</span><strong id="entropy-value">—</strong></div>
+          <div><span>Latency</span><strong id="latency-value">—</strong></div>
+        </div>
+        <div class="result-section">
+          <h4>Class scores</h4>
+          <div id="score-list" class="score-list"></div>
+        </div>
+        <div class="result-section">
+          <h4>Image quality</h4>
+          <p id="quality-summary"></p>
+          <dl id="quality-metrics" class="quality-metrics"></dl>
+        </div>
+        <details class="trace">
+          <summary>Decision trace</summary>
+          <dl>
+            <div><dt>Request</dt><dd id="request-id"></dd></div>
+            <div><dt>Model revision</dt><dd id="model-revision"></dd></div>
+            <div><dt>Policy</dt><dd id="policy-summary"></dd></div>
+          </dl>
+        </details>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built to demonstrate input safety, calibrated uncertainty, abstention, evaluation, and observable inference.</p>
+    <a href="/docs">API documentation</a>
+  </footer>
+  <noscript>This inspection console requires JavaScript. The API remains available at /docs.</noscript>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

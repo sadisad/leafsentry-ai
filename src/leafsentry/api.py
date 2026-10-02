@@ -6,13 +6,15 @@ import logging
 import re
 import time
 import uuid
-from collections.abc import AsyncIterator
+from collections.abc import AsyncIterator, Awaitable, Callable
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Annotated
 
 from fastapi import FastAPI, File, Request, UploadFile
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse, Response
+from fastapi.responses import FileResponse, JSONResponse, Response
+from fastapi.staticfiles import StaticFiles
 from prometheus_client import CONTENT_TYPE_LATEST, CollectorRegistry, generate_latest
 
 from leafsentry.config import Settings
@@ -25,6 +27,7 @@ from leafsentry.service import LeafSentryService
 _LOGGER = logging.getLogger("leafsentry.api")
 _REQUEST_ID = re.compile(r"^[A-Za-z0-9._-]{1,64}$")
 _READ_CHUNK_BYTES = 64 * 1024
+_STATIC_DIRECTORY = Path(__file__).with_name("static")
 
 
 def _request_id(request: Request) -> str:
@@ -81,6 +84,22 @@ def create_app(
     )
     app.state.service = service
     app.state.metrics = metrics
+    app.mount("/static", StaticFiles(directory=_STATIC_DIRECTORY), name="static")
+
+    @app.middleware("http")
+    async def security_headers(
+        request: Request, call_next: Callable[[Request], Awaitable[Response]]
+    ) -> Response:
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Referrer-Policy"] = "no-referrer"
+        response.headers["Content-Security-Policy"] = (
+            "default-src 'self'; img-src 'self' blob:; style-src 'self'; "
+            "script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; "
+            "frame-ancestors 'none'"
+        )
+        return response
 
     @app.exception_handler(LeafSentryError)
     async def leafsentry_error_handler(request: Request, exc: LeafSentryError) -> JSONResponse:
@@ -131,6 +150,10 @@ def create_app(
     @app.get("/metrics", include_in_schema=False)
     async def prometheus_metrics() -> Response:
         return Response(content=generate_latest(metrics.registry), media_type=CONTENT_TYPE_LATEST)
+
+    @app.get("/", include_in_schema=False)
+    async def operator_console() -> FileResponse:
+        return FileResponse(_STATIC_DIRECTORY / "index.html", media_type="text/html")
 
     @app.post(
         "/v1/predictions",

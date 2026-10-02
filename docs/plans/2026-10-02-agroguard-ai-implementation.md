@@ -1,4 +1,4 @@
-# AgroGuard AI Implementation Plan
+# LeafSentry AI Implementation Plan
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
@@ -14,9 +14,9 @@
 
 **Files:**
 - Create: `pyproject.toml`
-- Create: `src/agroguard/__init__.py`
-- Create: `src/agroguard/config.py`
-- Create: `src/agroguard/schemas.py`
+- Create: `src/leafsentry/__init__.py`
+- Create: `src/leafsentry/config.py`
+- Create: `src/leafsentry/schemas.py`
 - Test: `tests/test_config.py`
 - Test: `tests/test_schemas.py`
 
@@ -30,8 +30,8 @@
 ### Task 2: Guard untrusted images
 
 **Files:**
-- Create: `src/agroguard/errors.py`
-- Create: `src/agroguard/image_guard.py`
+- Create: `src/leafsentry/errors.py`
+- Create: `src/leafsentry/image_guard.py`
 - Test: `tests/test_image_guard.py`
 
 **Steps:**
@@ -43,7 +43,7 @@
 ### Task 3: Implement calibrated selective prediction
 
 **Files:**
-- Create: `src/agroguard/prediction.py`
+- Create: `src/leafsentry/prediction.py`
 - Test: `tests/test_prediction.py`
 
 **Steps:**
@@ -55,10 +55,10 @@
 ### Task 4: Orchestrate inference and expose the API
 
 **Files:**
-- Create: `src/agroguard/service.py`
-- Create: `src/agroguard/metrics.py`
-- Create: `src/agroguard/api.py`
-- Create: `src/agroguard/__main__.py`
+- Create: `src/leafsentry/service.py`
+- Create: `src/leafsentry/metrics.py`
+- Create: `src/leafsentry/api.py`
+- Create: `src/leafsentry/__main__.py`
 - Test: `tests/fakes.py`
 - Test: `tests/test_service.py`
 - Test: `tests/test_api.py`
@@ -73,8 +73,8 @@
 ### Task 5: Add reproducible evaluation
 
 **Files:**
-- Create: `src/agroguard/evaluation.py`
-- Create: `src/agroguard/cli.py`
+- Create: `src/leafsentry/evaluation.py`
+- Create: `src/leafsentry/cli.py`
 - Create: `examples/predictions.example.jsonl`
 - Test: `tests/test_evaluation.py`
 - Test: `tests/test_cli.py`
@@ -89,8 +89,8 @@
 ### Task 6: Integrate the pinned open model
 
 **Files:**
-- Create: `src/agroguard/backends/__init__.py`
-- Create: `src/agroguard/backends/huggingface.py`
+- Create: `src/leafsentry/backends/__init__.py`
+- Create: `src/leafsentry/backends/huggingface.py`
 - Create: `scripts/model_smoke.py`
 - Test: `tests/test_huggingface_backend.py`
 - Test: `tests/model/test_real_model.py`
@@ -105,9 +105,9 @@
 ### Task 7: Build the operator surface and observability
 
 **Files:**
-- Create: `src/agroguard/static/index.html`
-- Create: `src/agroguard/static/app.css`
-- Create: `src/agroguard/static/app.js`
+- Create: `src/leafsentry/static/index.html`
+- Create: `src/leafsentry/static/app.css`
+- Create: `src/leafsentry/static/app.js`
 - Test: `tests/test_static.py`
 
 **Steps:**
@@ -150,7 +150,7 @@
 **Steps:**
 1. Run the complete local verification gate: format check, lint, type check, full non-model test suite with coverage, package build/install smoke, dependency audit, secret scan, Docker build/run/health/API smoke.
 2. Review the entire diff and perform an independent code/security review; fix material findings and rerun all affected gates.
-3. Create public repository `sadisad/agroguard-ai`, push the verified history, set description/topics, and enable issues while disabling unused wiki/projects.
+3. Create public repository `sadisad/leafsentry-ai`, push the verified history, set description/topics, and enable issues while disabling unused wiki/projects.
 4. Verify GitHub Actions from the pushed SHA; fix failures rather than weakening checks.
 5. Update the profile README Featured Projects section through an isolated clone/commit/push and verify the rendered source contains the link.
 6. Report the exact repository URL, commit SHA, observed verification evidence, and any honest remaining limitations.

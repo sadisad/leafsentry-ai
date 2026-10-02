@@ -1,8 +1,8 @@
-# AgroGuard AI — System Design
+# LeafSentry AI — System Design
 
 ## Product intent
 
-AgroGuard AI is a portfolio-grade, production-oriented image triage service for bean leaves. It demonstrates the work around a model that matters in real systems: input safety, image-quality checks, calibrated confidence, selective prediction, stable API contracts, observability, evaluation, containerization, and automated verification.
+LeafSentry AI is a portfolio-grade, production-oriented image triage service for bean leaves. It demonstrates the work around a model that matters in real systems: input safety, image-quality checks, calibrated confidence, selective prediction, stable API contracts, observability, evaluation, containerization, and automated verification.
 
 It is intentionally narrow. The initial model recognizes only `angular_leaf_spot`, `bean_rust`, and `healthy`. The service must abstain rather than force a label when input quality is poor or confidence is insufficient. It is an educational decision-support demo, not a field-validated diagnostic device.
 
@@ -13,8 +13,8 @@ Default model: `nateraw/vit-base-beans`, pinned to revision `41f85ace09a4613c2c6
 - Model card license: Apache-2.0.
 - Dataset: `AI-Lab-Makerere/beans`, license marked MIT on its dataset card.
 - Dataset scope: 1,295 bean-leaf images across train/validation/test and three labels.
-- The upstream model card reports a Hugging Face-verified test accuracy of 0.9453125. AgroGuard does not present this as its own result.
-- Any AgroGuard metric must come from a checked-in reproducible evaluation artifact and identify the model revision, dataset revision, split, configuration, and timestamp.
+- The upstream model card reports a Hugging Face-verified test accuracy of 0.9453125. LeafSentry does not present this as its own result.
+- Any LeafSentry metric must come from a checked-in reproducible evaluation artifact and identify the model revision, dataset revision, split, configuration, and timestamp.
 
 ## Architecture
 

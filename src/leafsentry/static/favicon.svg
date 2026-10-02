@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LeafSentry">
+  <rect width="64" height="64" rx="32" fill="#193e29"/>
+  <path d="M18 38c15 2 25-7 29-23 4 17-3 31-19 33-7 1-11-3-10-10Z" fill="#dce7d7"/>
+  <path d="M19 46c8-9 16-15 27-24" fill="none" stroke="#193e29" stroke-width="3" stroke-linecap="round"/>
+</svg>
