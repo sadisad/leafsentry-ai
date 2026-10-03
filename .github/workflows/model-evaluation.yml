@@ -1,0 +1,63 @@
+name: Pinned model evaluation
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Evaluation scope
+        required: true
+        default: smoke
+        type: choice
+        options:
+          - smoke
+          - held-out-test
+
+permissions:
+  contents: read
+
+concurrency:
+  group: model-evaluation-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  UV_VERSION: "0.12.20"
+
+jobs:
+  evaluate:
+    name: ${{ inputs.mode }} on CPU
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: true
+      - name: Sync CPU model environment
+        run: uv sync --frozen --extra dev --extra ml --no-install-project
+      - name: Run pinned three-sample smoke
+        if: inputs.mode == 'smoke'
+        run: PYTHONPATH=src uv run --no-sync python scripts/model_smoke.py --output artifacts/model-smoke.json
+      - name: Download pinned held-out test split
+        if: inputs.mode == 'held-out-test'
+        run: |
+          mkdir -p .cache/dataset-eval
+          curl --fail --location --silent --show-error --retry 3 \
+            --output .cache/dataset-eval/test.zip \
+            https://huggingface.co/datasets/AI-Lab-Makerere/beans/resolve/27aa014ce09b193e1a6f58112d4a66e0eddb69c5/data/test.zip
+      - name: Run held-out test evaluation
+        if: inputs.mode == 'held-out-test'
+        run: PYTHONPATH=src uv run --no-sync python scripts/benchmark_test_split.py .cache/dataset-eval/test.zip --output artifacts/test-split-report.json
+      - name: Upload evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: model-evaluation-${{ inputs.mode }}
+          path: artifacts/*.json
+          if-no-files-found: error
+          retention-days: 30

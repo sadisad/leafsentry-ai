@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+    image: leafsentry-ai:local
+    init: true
+    ports:
+      - "127.0.0.1:8000:8000"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    volumes:
+      - leafsentry-model-cache:/home/leafsentry/.cache/huggingface
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 2g
+    cpus: 2.0
+    restart: unless-stopped
+
+volumes:
+  leafsentry-model-cache:

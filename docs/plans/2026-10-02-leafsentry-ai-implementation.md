@@ -1,6 +1,6 @@
 # LeafSentry AI Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+This document records the original implementation sequence. Current behavior and measured evidence are described in the root README and model/system card.
 
 **Goal:** Build and publish a verified, production-oriented computer-vision triage service that demonstrates safe inference, selective prediction, evaluation, API engineering, observability, and MLOps practices.
 

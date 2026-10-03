@@ -98,6 +98,7 @@ class HuggingFacePredictor:
                 self.model_id,
                 revision=self.revision,
                 trust_remote_code=False,
+                use_fast=False,
             )
             self._model = self._model_loader(
                 self.model_id,

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LeafSentry API reference</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="topbar"><a href="/">LeafSentry inspection console</a></header>
+<main class="console">
+<h1>API reference</h1>
+<p>One image, three supported bean-leaf classes, an accepted or abstained decision.</p>
+<h2>POST /v1/predictions</h2>
+<p>Send a multipart field named <code>file</code> containing JPEG, PNG, or WebP. Default maximum file size: 5 MiB. Filenames are not used for inference.</p>
+<pre>curl --fail-with-body -F 'file=@leaf.jpg;type=image/jpeg' http://127.0.0.1:8000/v1/predictions</pre>
+<p>HTTP 200 includes schema version, decision, prediction (only when accepted), class scores, confidence, margin, normalized entropy, quality findings, policy thresholds, model revision, and request ID.</p>
+<p>HTTP 413: upload too large. HTTP 415: unsupported type. HTTP 422: invalid input. HTTP 503: model unavailable. HTTP 500: internal or malformed model output.</p>
+<h2>Operations</h2>
+<ul>
+<li><code>GET /health/live</code>: process liveness; does not load weights.</li>
+<li><code>GET /health/ready</code>: 503 until a successful first inference loads the model; then 200.</li>
+<li><code>GET /metrics</code>: Prometheus prediction outcomes and latency.</li>
+<li><a href="/openapi.json">GET /openapi.json</a>: complete machine-readable response schemas.</li>
+</ul>
+<p>Educational decision-support demo; this is not a field-validated diagnosis.</p>
+</main>
+</body>
+</html>

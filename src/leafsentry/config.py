@@ -51,6 +51,16 @@ class Settings:
                 raise ValueError(f"{name} must be positive")
         if self.min_image_dimension > self.max_image_dimension:
             raise ValueError("min_image_dimension cannot exceed max_image_dimension")
+        for name in ("min_brightness", "max_brightness"):
+            value = getattr(self, name)
+            if not math.isfinite(value) or not 0.0 <= value <= 255.0:
+                raise ValueError(f"{name} must be finite and between 0 and 255")
+        if self.min_brightness > self.max_brightness:
+            raise ValueError("min_brightness cannot exceed max_brightness")
+        for name in ("min_contrast", "min_sharpness"):
+            value = getattr(self, name)
+            if not math.isfinite(value) or value < 0.0:
+                raise ValueError(f"{name} must be finite and nonnegative")
 
     @classmethod
     def from_env(cls) -> Settings:

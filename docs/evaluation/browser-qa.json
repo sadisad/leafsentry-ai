@@ -1,0 +1,29 @@
+[
+  {
+    "width": 390,
+    "scrollWidth": 390,
+    "decision": "accepted",
+    "label": "healthy",
+    "focus": "result",
+    "docsVisible": true,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "scrollWidth": 768,
+    "decision": "accepted",
+    "label": "healthy",
+    "focus": "result",
+    "docsVisible": true,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "decision": "accepted",
+    "label": "healthy",
+    "focus": "result",
+    "docsVisible": true,
+    "errors": []
+  }
+]

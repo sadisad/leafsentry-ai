@@ -77,16 +77,22 @@ def test_injected_huggingface_backend_returns_labels_and_raw_logits() -> None:
 
 
 def test_loaders_receive_pinned_revision_and_disable_remote_code() -> None:
-    calls: list[tuple[str, str, bool]] = []
+    calls: list[tuple[str, str, bool, bool | None]] = []
     processor = FakeProcessor()
     model = FakeModel()
 
-    def processor_loader(model_id: str, *, revision: str, trust_remote_code: bool) -> FakeProcessor:
-        calls.append((model_id, revision, trust_remote_code))
+    def processor_loader(
+        model_id: str,
+        *,
+        revision: str,
+        trust_remote_code: bool,
+        use_fast: bool,
+    ) -> FakeProcessor:
+        calls.append((model_id, revision, trust_remote_code, use_fast))
         return processor
 
     def model_loader(model_id: str, *, revision: str, trust_remote_code: bool) -> FakeModel:
-        calls.append((model_id, revision, trust_remote_code))
+        calls.append((model_id, revision, trust_remote_code, None))
         return model
 
     predictor = HuggingFacePredictor(
@@ -101,8 +107,8 @@ def test_loaders_receive_pinned_revision_and_disable_remote_code() -> None:
     predictor.predict(Image.new("RGB", (224, 224), "green"))
 
     assert calls == [
-        (MODEL_ID, MODEL_REVISION, False),
-        (MODEL_ID, MODEL_REVISION, False),
+        (MODEL_ID, MODEL_REVISION, False, False),
+        (MODEL_ID, MODEL_REVISION, False, None),
     ]
     assert model.eval_calls == 1
     assert predictor.is_ready is True

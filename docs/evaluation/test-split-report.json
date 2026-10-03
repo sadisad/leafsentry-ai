@@ -1,0 +1,1825 @@
+{
+  "confusion_matrix": {
+    "angular_leaf_spot": {
+      "angular_leaf_spot": 40,
+      "bean_rust": 3,
+      "healthy": 0
+    },
+    "bean_rust": {
+      "angular_leaf_spot": 0,
+      "bean_rust": 43,
+      "healthy": 0
+    },
+    "healthy": {
+      "angular_leaf_spot": 0,
+      "bean_rust": 1,
+      "healthy": 41
+    }
+  },
+  "dataset": {
+    "archive_sha256": "ca67b15d960d1e2fd9d23fd8498ce86818ead90755c630a43baf19ec4af09312",
+    "id": "AI-Lab-Makerere/beans",
+    "revision": "27aa014ce09b193e1a6f58112d4a66e0eddb69c5",
+    "samples": 128,
+    "split": "test"
+  },
+  "generated_at": "2026-10-03T08:17:09.809761+00:00",
+  "latency_ms": {
+    "mean": 821.2435045857092,
+    "p95": 1364.400910999393,
+    "scope": "model loading (first sample), preprocessing, forward pass, and score policy on local CPU; not an HTTP/load benchmark"
+  },
+  "metrics": {
+    "accepted": 127,
+    "accuracy": 0.96875,
+    "coverage": 0.9921875,
+    "expected_calibration_error": 0.054864763261930155,
+    "macro_f1": 0.9691209281570727,
+    "multiclass_brier": 0.050559406824825195,
+    "negative_log_likelihood": 0.1315305183995276,
+    "samples": 128,
+    "selective_accuracy": 0.9763779527559056,
+    "selective_risk": 0.023622047244094446
+  },
+  "model": {
+    "id": "nateraw/vit-base-beans",
+    "revision": "41f85ace09a4613c2c65495b3b8465c4ceee1d00"
+  },
+  "policy": {
+    "min_confidence": 0.75,
+    "min_margin": 0.2,
+    "temperature": 1.0
+  },
+  "predictions": [
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.0.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9432013327228899,
+        "bean_rust": 0.031075140633591906,
+        "healthy": 0.025723526643518235
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.1.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.944998020978087,
+        "bean_rust": 0.030013627140118838,
+        "healthy": 0.02498835188179403
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.10.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9402844045138675,
+        "bean_rust": 0.03375059973913915,
+        "healthy": 0.025964995746993232
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.11.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9449644398901885,
+        "bean_rust": 0.030041959251116204,
+        "healthy": 0.024993600858695196
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.12.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9422314262474534,
+        "bean_rust": 0.030958885113389394,
+        "healthy": 0.02680968863915725
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.13.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9465495399273113,
+        "bean_rust": 0.02907253933187173,
+        "healthy": 0.024377920740816995
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": false,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.14.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.22597236493300538,
+        "bean_rust": 0.7536972444167909,
+        "healthy": 0.020330390650203867
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.15.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9440211133724524,
+        "bean_rust": 0.03407574240504076,
+        "healthy": 0.02190314422250691
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.16.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9441859942514269,
+        "bean_rust": 0.031172333137122362,
+        "healthy": 0.024641672611450817
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.17.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.949230775664258,
+        "bean_rust": 0.026925065405883856,
+        "healthy": 0.02384415892985822
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.18.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9426277955796699,
+        "bean_rust": 0.028023057885231264,
+        "healthy": 0.029349146535098812
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.19.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9362922348592366,
+        "bean_rust": 0.043488294485410646,
+        "healthy": 0.02021947065535291
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.2.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.943497802283202,
+        "bean_rust": 0.03394164358386381,
+        "healthy": 0.022560554132934202
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.20.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9413331319958443,
+        "bean_rust": 0.02924435808695144,
+        "healthy": 0.02942250991720419
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.21.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9483399720750685,
+        "bean_rust": 0.0283916187803695,
+        "healthy": 0.023268409144561974
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.22.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9453355521490582,
+        "bean_rust": 0.027206172708107188,
+        "healthy": 0.02745827514283455
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.23.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9460371880698485,
+        "bean_rust": 0.031475655618740855,
+        "healthy": 0.022487156311410822
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.24.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9290099147272389,
+        "bean_rust": 0.04469880719922668,
+        "healthy": 0.026291278073534447
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.25.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9457195042317776,
+        "bean_rust": 0.026481856410915067,
+        "healthy": 0.027798639357307236
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.26.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9476674557953669,
+        "bean_rust": 0.031093960803837535,
+        "healthy": 0.02123858340079544
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.27.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.918521022512969,
+        "bean_rust": 0.047039235359105654,
+        "healthy": 0.034439742127925325
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.28.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.946545951065312,
+        "bean_rust": 0.028923033496309706,
+        "healthy": 0.024531015438378396
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.29.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9468379568726506,
+        "bean_rust": 0.03282203677035586,
+        "healthy": 0.02034000635699354
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.3.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9438772785123979,
+        "bean_rust": 0.03091188283719743,
+        "healthy": 0.0252108386504047
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.30.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9478502842100867,
+        "bean_rust": 0.026412401291382333,
+        "healthy": 0.025737314498531023
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.31.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9474871495985694,
+        "bean_rust": 0.02676434833304975,
+        "healthy": 0.025748502068380905
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.32.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9458763546070883,
+        "bean_rust": 0.030629829122492378,
+        "healthy": 0.023493816270419333
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.33.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.8064858271353438,
+        "bean_rust": 0.052282462548072346,
+        "healthy": 0.14123171031658383
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.34.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9388220544932481,
+        "bean_rust": 0.02954504008359494,
+        "healthy": 0.03163290542315699
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.35.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9419623676282987,
+        "bean_rust": 0.03449586897922608,
+        "healthy": 0.02354176339247519
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": false,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.36.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.037815873355875614,
+        "bean_rust": 0.9385416939756447,
+        "healthy": 0.023642432668479818
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.37.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.944875619214296,
+        "bean_rust": 0.0286479115833785,
+        "healthy": 0.026476469202325593
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.38.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9243138833893566,
+        "bean_rust": 0.04802509243902755,
+        "healthy": 0.027661024171615756
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.39.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9233152231560192,
+        "bean_rust": 0.052171479403193555,
+        "healthy": 0.024513297440787275
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.4.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9326915696935241,
+        "bean_rust": 0.04408501812405313,
+        "healthy": 0.02322341218242278
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.40.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9469035333674926,
+        "bean_rust": 0.03152529852183369,
+        "healthy": 0.021571168110673694
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.41.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9439490473759153,
+        "bean_rust": 0.030181822485817997,
+        "healthy": 0.025869130138266503
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": false,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.42.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.04329696994640194,
+        "bean_rust": 0.9365816213001116,
+        "healthy": 0.020121408753486503
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.5.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9351111550500183,
+        "bean_rust": 0.037012944043973796,
+        "healthy": 0.02787590090600796
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.6.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9381564372383725,
+        "bean_rust": 0.034107334984694246,
+        "healthy": 0.027736227776933166
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.7.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9387082313609172,
+        "bean_rust": 0.03552590215724299,
+        "healthy": 0.025765866481840014
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.8.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9433521166310425,
+        "bean_rust": 0.03156492405975549,
+        "healthy": 0.025082959309202093
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "angular_leaf_spot_test.9.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.9439495226956939,
+        "bean_rust": 0.02964629422140838,
+        "healthy": 0.026404183082897718
+      },
+      "target": "angular_leaf_spot",
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.0.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.025370745573803876,
+        "bean_rust": 0.9399145013528063,
+        "healthy": 0.03471475307338982
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.1.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02802421745370337,
+        "bean_rust": 0.9477580356538422,
+        "healthy": 0.02421774689245452
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.10.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.03925984632238482,
+        "bean_rust": 0.9225377628039876,
+        "healthy": 0.03820239087362755
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.11.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.023120593937974037,
+        "bean_rust": 0.9473438874140728,
+        "healthy": 0.029535518647953247
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.12.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02678692486149862,
+        "bean_rust": 0.9519444204462755,
+        "healthy": 0.02126865469222609
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.13.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.0333299790324707,
+        "bean_rust": 0.9395888150054745,
+        "healthy": 0.027081205962054707
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.14.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.028837508206201456,
+        "bean_rust": 0.9455349267197634,
+        "healthy": 0.025627565074035068
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.15.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.1344808166349488,
+        "bean_rust": 0.8428008754175088,
+        "healthy": 0.022718307947542437
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.16.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.025145389214358913,
+        "bean_rust": 0.9500843579945932,
+        "healthy": 0.024770252791047817
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.17.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.04295838946084603,
+        "bean_rust": 0.93722076359993,
+        "healthy": 0.019820846939223858
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.18.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02722315259776577,
+        "bean_rust": 0.9453471434208548,
+        "healthy": 0.02742970398137955
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.19.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.031161055592484308,
+        "bean_rust": 0.9390356541927481,
+        "healthy": 0.02980329021476766
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.2.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.03403624632616403,
+        "bean_rust": 0.9419920656987767,
+        "healthy": 0.02397168797505918
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.20.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.028095877392934912,
+        "bean_rust": 0.9412276951523837,
+        "healthy": 0.0306764274546814
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.21.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02469450763906413,
+        "bean_rust": 0.936891334177795,
+        "healthy": 0.03841415818314074
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.22.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.07097525157520551,
+        "bean_rust": 0.8973886811184383,
+        "healthy": 0.03163606730635614
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.23.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.033487028862779156,
+        "bean_rust": 0.9463416644520931,
+        "healthy": 0.02017130668512783
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.24.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.022047955485124116,
+        "bean_rust": 0.9234494482598846,
+        "healthy": 0.054502596254991285
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.25.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.029763447655871612,
+        "bean_rust": 0.9440107380068601,
+        "healthy": 0.026225814337268283
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.26.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.030100653716542792,
+        "bean_rust": 0.9490985618094373,
+        "healthy": 0.020800784474019934
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.27.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.03866280116475235,
+        "bean_rust": 0.9313119122740355,
+        "healthy": 0.03002528656121221
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.28.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02593760249499444,
+        "bean_rust": 0.9471719527329923,
+        "healthy": 0.026890444772013196
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.29.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.023364569589817766,
+        "bean_rust": 0.949768635696758,
+        "healthy": 0.02686679471342422
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.3.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.035239313799689635,
+        "bean_rust": 0.9326789379487174,
+        "healthy": 0.03208174825159295
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.30.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.10486708260784143,
+        "bean_rust": 0.8659401408697232,
+        "healthy": 0.029192776522435338
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.31.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.03546315033851395,
+        "bean_rust": 0.945145703704624,
+        "healthy": 0.019391145956861817
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.32.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.03259675268520881,
+        "bean_rust": 0.9479207023342757,
+        "healthy": 0.019482544980515288
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.33.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.032928203840531314,
+        "bean_rust": 0.9234396313357902,
+        "healthy": 0.04363216482367844
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.34.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.022070808017731,
+        "bean_rust": 0.9500644819770556,
+        "healthy": 0.027864710005213462
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.35.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.031489795289553583,
+        "bean_rust": 0.9439786146624225,
+        "healthy": 0.02453159004802412
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.36.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.1139317656100009,
+        "bean_rust": 0.868142855454981,
+        "healthy": 0.017925378935018065
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.37.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.025192021866084626,
+        "bean_rust": 0.9272437905820707,
+        "healthy": 0.04756418755184447
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.38.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02820583234285899,
+        "bean_rust": 0.9489443108201463,
+        "healthy": 0.02284985683699475
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.39.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.0413746378943822,
+        "bean_rust": 0.9271457057848711,
+        "healthy": 0.03147965632074665
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.4.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02858205420565521,
+        "bean_rust": 0.9447262293702907,
+        "healthy": 0.026691716424053966
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.40.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02833380021224329,
+        "bean_rust": 0.946550536163713,
+        "healthy": 0.025115663624043785
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.41.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.022210371197212895,
+        "bean_rust": 0.9477959209288994,
+        "healthy": 0.02999370787388758
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.42.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.04061860483597542,
+        "bean_rust": 0.8993525844725643,
+        "healthy": 0.060028810691460335
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.5.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.03647289045176273,
+        "bean_rust": 0.9299376455366716,
+        "healthy": 0.03358946401156561
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.6.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.053100675257070615,
+        "bean_rust": 0.9014990678622073,
+        "healthy": 0.04540025688072199
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.7.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.04596491042244598,
+        "bean_rust": 0.9251834554007387,
+        "healthy": 0.02885163417681539
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.8.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.035304513854277304,
+        "bean_rust": 0.943444987525514,
+        "healthy": 0.021250498620208787
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "bean_rust_test.9.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.036485889276300164,
+        "bean_rust": 0.9449490364751277,
+        "healthy": 0.01856507424857212
+      },
+      "target": "bean_rust",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.0.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.018459948251307097,
+        "bean_rust": 0.022700497480097035,
+        "healthy": 0.9588395542685959
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.1.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.019038233202694342,
+        "bean_rust": 0.023722098968297908,
+        "healthy": 0.9572396678290078
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.10.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.030337648873897182,
+        "bean_rust": 0.16111151146789873,
+        "healthy": 0.8085508396582041
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.11.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.016918628492871974,
+        "bean_rust": 0.027502009375641713,
+        "healthy": 0.9555793621314862
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.12.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.019402053202881856,
+        "bean_rust": 0.022262459547310126,
+        "healthy": 0.958335487249808
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.13.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.028994994127068043,
+        "bean_rust": 0.030782892876193027,
+        "healthy": 0.9402221129967389
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.14.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020088286869449908,
+        "bean_rust": 0.02166678239693858,
+        "healthy": 0.9582449307336116
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.15.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02149566804483765,
+        "bean_rust": 0.018418319937818235,
+        "healthy": 0.9600860120173441
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.16.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.019960067237831194,
+        "bean_rust": 0.02754267901082369,
+        "healthy": 0.9524972537513452
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.17.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.023388539999040656,
+        "bean_rust": 0.0228504602699021,
+        "healthy": 0.9537609997310572
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.18.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020488940163767632,
+        "bean_rust": 0.021965196749658997,
+        "healthy": 0.9575458630865734
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.19.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020499824094011385,
+        "bean_rust": 0.021685007023288794,
+        "healthy": 0.9578151688826998
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.2.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020845839250723534,
+        "bean_rust": 0.019726769361962493,
+        "healthy": 0.9594273913873139
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.20.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.019458077444519207,
+        "bean_rust": 0.023585884695968375,
+        "healthy": 0.9569560378595123
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.21.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020635023520298387,
+        "bean_rust": 0.019571360834785192,
+        "healthy": 0.9597936156449164
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.22.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.021231964921380016,
+        "bean_rust": 0.02136302804786016,
+        "healthy": 0.9574050070307598
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.23.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02243477128908308,
+        "bean_rust": 0.018227315657250696,
+        "healthy": 0.9593379130536662
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.24.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.022919277075265698,
+        "bean_rust": 0.139740149911894,
+        "healthy": 0.8373405730128403
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.25.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.0198152841498444,
+        "bean_rust": 0.024785989265437403,
+        "healthy": 0.9553987265847182
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.26.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020046194937791455,
+        "bean_rust": 0.020420673434886173,
+        "healthy": 0.9595331316273225
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.27.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02606915921509437,
+        "bean_rust": 0.03405736505502816,
+        "healthy": 0.9398734757298773
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.28.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020878424035430124,
+        "bean_rust": 0.027744280844508116,
+        "healthy": 0.9513772951200618
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.29.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02051232296418664,
+        "bean_rust": 0.020154186975821903,
+        "healthy": 0.9593334900599915
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.3.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.019666927508197898,
+        "bean_rust": 0.02129101842279733,
+        "healthy": 0.9590420540690049
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.30.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.01976141782584244,
+        "bean_rust": 0.03454892351622441,
+        "healthy": 0.9456896586579331
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.31.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.021088623195862587,
+        "bean_rust": 0.019437831780118847,
+        "healthy": 0.9594735450240186
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.32.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.01971209200576306,
+        "bean_rust": 0.022474068101551798,
+        "healthy": 0.9578138398926852
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.33.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02001341707955247,
+        "bean_rust": 0.020599004084073554,
+        "healthy": 0.9593875788363739
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.34.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.01876143909553409,
+        "bean_rust": 0.02444987397875516,
+        "healthy": 0.9567886869257106
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": false,
+      "decision": "abstained",
+      "filename": "healthy_test.35.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.04915441105948449,
+        "bean_rust": 0.6268978489394262,
+        "healthy": 0.3239477400010893
+      },
+      "target": "healthy",
+      "top_label": "bean_rust"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.36.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.03143246590446554,
+        "bean_rust": 0.0331587393878973,
+        "healthy": 0.9354087947076372
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.37.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.018807906445211565,
+        "bean_rust": 0.020903331941137575,
+        "healthy": 0.9602887616136508
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.38.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.01958993822837486,
+        "bean_rust": 0.020374676828484997,
+        "healthy": 0.9600353849431401
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.39.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.02100424760706386,
+        "bean_rust": 0.019428886907637534,
+        "healthy": 0.9595668654852985
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.4.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.019684935740121787,
+        "bean_rust": 0.023297014859954054,
+        "healthy": 0.9570180493999242
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.40.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.0362315187322154,
+        "bean_rust": 0.03752588032523497,
+        "healthy": 0.9262426009425496
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.41.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020262439680760944,
+        "bean_rust": 0.026480264658443636,
+        "healthy": 0.9532572956607954
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.5.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.022428513805140993,
+        "bean_rust": 0.019313350579736238,
+        "healthy": 0.9582581356151227
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.6.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.020320639234526757,
+        "bean_rust": 0.027402140515825704,
+        "healthy": 0.9522772202496476
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.7.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.0236157902715578,
+        "bean_rust": 0.023795175596312404,
+        "healthy": 0.9525890341321298
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.8.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.022592290631842683,
+        "bean_rust": 0.02025123631343972,
+        "healthy": 0.9571564730547175
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    },
+    {
+      "correct": true,
+      "decision": "accepted",
+      "filename": "healthy_test.9.jpg",
+      "probabilities": {
+        "angular_leaf_spot": 0.017615999967937942,
+        "bean_rust": 0.0313581658910149,
+        "healthy": 0.951025834141047
+      },
+      "target": "healthy",
+      "top_label": "healthy"
+    }
+  ],
+  "runtime": {
+    "device": "cpu",
+    "python": "3.12.3",
+    "torch": "2.9.1+cpu",
+    "torchvision": "0.24.1+cpu",
+    "transformers": "5.10.1"
+  },
+  "schema_version": "1.0",
+  "threshold_sweep": [
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.0,
+      "min_margin": 0.0,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.0,
+      "min_margin": 0.1,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.0,
+      "min_margin": 0.2,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.0,
+      "min_margin": 0.3,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.5,
+      "min_margin": 0.0,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.5,
+      "min_margin": 0.1,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.5,
+      "min_margin": 0.2,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.5,
+      "min_margin": 0.3,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.6,
+      "min_margin": 0.0,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.6,
+      "min_margin": 0.1,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.6,
+      "min_margin": 0.2,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 1.0,
+      "min_confidence": 0.6,
+      "min_margin": 0.3,
+      "selective_accuracy": 0.96875,
+      "selective_risk": 0.03125
+    },
+    {
+      "coverage": 0.9921875,
+      "min_confidence": 0.7,
+      "min_margin": 0.0,
+      "selective_accuracy": 0.9763779527559056,
+      "selective_risk": 0.023622047244094446
+    },
+    {
+      "coverage": 0.9921875,
+      "min_confidence": 0.7,
+      "min_margin": 0.1,
+      "selective_accuracy": 0.9763779527559056,
+      "selective_risk": 0.023622047244094446
+    },
+    {
+      "coverage": 0.9921875,
+      "min_confidence": 0.7,
+      "min_margin": 0.2,
+      "selective_accuracy": 0.9763779527559056,
+      "selective_risk": 0.023622047244094446
+    },
+    {
+      "coverage": 0.9921875,
+      "min_confidence": 0.7,
+      "min_margin": 0.3,
+      "selective_accuracy": 0.9763779527559056,
+      "selective_risk": 0.023622047244094446
+    },
+    {
+      "coverage": 0.9921875,
+      "min_confidence": 0.75,
+      "min_margin": 0.0,
+      "selective_accuracy": 0.9763779527559056,
+      "selective_risk": 0.023622047244094446
+    },
+    {
+      "coverage": 0.9921875,
+      "min_confidence": 0.75,
+      "min_margin": 0.1,
+      "selective_accuracy": 0.9763779527559056,
+      "selective_risk": 0.023622047244094446
+    },
+    {
+      "coverage": 0.9921875,
+      "min_confidence": 0.75,
+      "min_margin": 0.2,
+      "selective_accuracy": 0.9763779527559056,
+      "selective_risk": 0.023622047244094446
+    },
+    {
+      "coverage": 0.9921875,
+      "min_confidence": 0.75,
+      "min_margin": 0.3,
+      "selective_accuracy": 0.9763779527559056,
+      "selective_risk": 0.023622047244094446
+    },
+    {
+      "coverage": 0.984375,
+      "min_confidence": 0.8,
+      "min_margin": 0.0,
+      "selective_accuracy": 0.9841269841269841,
+      "selective_risk": 0.015873015873015928
+    },
+    {
+      "coverage": 0.984375,
+      "min_confidence": 0.8,
+      "min_margin": 0.1,
+      "selective_accuracy": 0.9841269841269841,
+      "selective_risk": 0.015873015873015928
+    },
+    {
+      "coverage": 0.984375,
+      "min_confidence": 0.8,
+      "min_margin": 0.2,
+      "selective_accuracy": 0.9841269841269841,
+      "selective_risk": 0.015873015873015928
+    },
+    {
+      "coverage": 0.984375,
+      "min_confidence": 0.8,
+      "min_margin": 0.3,
+      "selective_accuracy": 0.9841269841269841,
+      "selective_risk": 0.015873015873015928
+    },
+    {
+      "coverage": 0.921875,
+      "min_confidence": 0.9,
+      "min_margin": 0.0,
+      "selective_accuracy": 0.9830508474576272,
+      "selective_risk": 0.016949152542372836
+    },
+    {
+      "coverage": 0.921875,
+      "min_confidence": 0.9,
+      "min_margin": 0.1,
+      "selective_accuracy": 0.9830508474576272,
+      "selective_risk": 0.016949152542372836
+    },
+    {
+      "coverage": 0.921875,
+      "min_confidence": 0.9,
+      "min_margin": 0.2,
+      "selective_accuracy": 0.9830508474576272,
+      "selective_risk": 0.016949152542372836
+    },
+    {
+      "coverage": 0.921875,
+      "min_confidence": 0.9,
+      "min_margin": 0.3,
+      "selective_accuracy": 0.9830508474576272,
+      "selective_risk": 0.016949152542372836
+    },
+    {
+      "coverage": 0.2890625,
+      "min_confidence": 0.95,
+      "min_margin": 0.0,
+      "selective_accuracy": 1.0,
+      "selective_risk": 0.0
+    },
+    {
+      "coverage": 0.2890625,
+      "min_confidence": 0.95,
+      "min_margin": 0.1,
+      "selective_accuracy": 1.0,
+      "selective_risk": 0.0
+    },
+    {
+      "coverage": 0.2890625,
+      "min_confidence": 0.95,
+      "min_margin": 0.2,
+      "selective_accuracy": 1.0,
+      "selective_risk": 0.0
+    },
+    {
+      "coverage": 0.2890625,
+      "min_confidence": 0.95,
+      "min_margin": 0.3,
+      "selective_accuracy": 1.0,
+      "selective_risk": 0.0
+    }
+  ]
+}

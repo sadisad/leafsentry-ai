@@ -1,0 +1,65 @@
+{
+  "purpose": "Local verification evidence; not a public deployment or field-validation claim",
+  "python_3_12": {
+    "tests_passed": 138,
+    "model_tests_deselected": 1,
+    "coverage_percent": 93.39
+  },
+  "python_3_11": {
+    "tests_passed": 138,
+    "model_tests_deselected": 1,
+    "coverage_percent": 93.59
+  },
+  "real_model_pytest": {
+    "passed": 1
+  },
+  "quality": {
+    "ruff": "passed",
+    "format": "passed",
+    "mypy": "passed for 16 source files",
+    "actionlint": "passed",
+    "wheel_install_and_cli": "passed"
+  },
+  "runtime_audit": {
+    "packages": 46,
+    "known_vulnerabilities": 0,
+    "scope": "locked runtime with ML extra; pip-audit, at verification time"
+  },
+  "secret_scan": {
+    "git_history": "gitleaks no leaks found",
+    "source": "gitleaks no leaks found"
+  },
+  "container": {
+    "id": "sha256:7043b03b670c1318f5ba078196cae00054d755ac638b778a6511583d6b6e3771",
+    "uid": 10001,
+    "rootfs": "read_only",
+    "model_hub_offline": true,
+    "health": "healthy",
+    "live_http": 200,
+    "ready_after_inference_http": 200,
+    "invalid_input_http": 422,
+    "real_prediction": "healthy",
+    "decision": "accepted"
+  },
+  "browser": {
+    "widths": [
+      390,
+      768,
+      1440
+    ],
+    "horizontal_overflow": false,
+    "console_or_page_errors": 0,
+    "real_model_upload_and_docs": "passed"
+  },
+  "full_environment_audit": {
+    "packages": 79,
+    "known_vulnerabilities": 0,
+    "scope": "runtime+ML+development; pip-audit"
+  },
+  "review": {
+    "initial_verdict": "FAIL: quality threshold NaN allowed",
+    "finding": "fixed; direct/environment regression tests pass",
+    "security_findings_in_scope": 0,
+    "post_fix_parent_verification": "full test matrix, type/lint/build, real container smoke passed"
+  }
+}

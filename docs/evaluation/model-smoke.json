@@ -1,0 +1,75 @@
+{
+  "all_top1_matched": true,
+  "generated_at": "2026-10-03T08:10:19.527593+00:00",
+  "manifest": {
+    "model_id": "nateraw/vit-base-beans",
+    "model_revision": "41f85ace09a4613c2c65495b3b8465c4ceee1d00",
+    "samples": [
+      {
+        "expected_label": "angular_leaf_spot",
+        "filename": "angular_leaf_spot.jpeg",
+        "sha256": "a73315bd9ae46d63e55ffe4852186ecbb5eea2cec4655dae43399b8a4bd87254",
+        "url": "https://huggingface.co/nateraw/vit-base-beans/resolve/41f85ace09a4613c2c65495b3b8465c4ceee1d00/angular_leaf_spot.jpeg"
+      },
+      {
+        "expected_label": "bean_rust",
+        "filename": "bean_rust.jpeg",
+        "sha256": "838e1a3e13b2162a8cb40aa30482db356af5dc45d53067a0c03e3eb0a90414c8",
+        "url": "https://huggingface.co/nateraw/vit-base-beans/resolve/41f85ace09a4613c2c65495b3b8465c4ceee1d00/bean_rust.jpeg"
+      },
+      {
+        "expected_label": "healthy",
+        "filename": "healthy.jpeg",
+        "sha256": "21877a35c15fc3187e6d578e332e14366b1ec88bd3041f8326e67bd947ede349",
+        "url": "https://huggingface.co/nateraw/vit-base-beans/resolve/41f85ace09a4613c2c65495b3b8465c4ceee1d00/healthy.jpeg"
+      }
+    ]
+  },
+  "model": {
+    "id": "nateraw/vit-base-beans",
+    "revision": "41f85ace09a4613c2c65495b3b8465c4ceee1d00"
+  },
+  "runtime": {
+    "device": "cpu",
+    "python": "3.12.3",
+    "torch": "2.9.1+cpu",
+    "transformers": "5.10.1"
+  },
+  "samples": [
+    {
+      "confidence": 0.9456097610454881,
+      "decision": "accepted",
+      "expected_label": "angular_leaf_spot",
+      "filename": "angular_leaf_spot.jpeg",
+      "latency_ms": 9677.731398987817,
+      "margin": 0.918136323511486,
+      "matched": true,
+      "normalized_entropy": 0.22659689222534563,
+      "top_label": "angular_leaf_spot"
+    },
+    {
+      "confidence": 0.9499379373765346,
+      "decision": "accepted",
+      "expected_label": "bean_rust",
+      "filename": "bean_rust.jpeg",
+      "latency_ms": 548.1035840057302,
+      "margin": 0.9231503704870982,
+      "matched": true,
+      "normalized_entropy": 0.2123360145666683,
+      "top_label": "bean_rust"
+    },
+    {
+      "confidence": 0.9588060508697004,
+      "decision": "accepted",
+      "expected_label": "healthy",
+      "filename": "healthy.jpeg",
+      "latency_ms": 546.6610409785062,
+      "margin": 0.9381632914553697,
+      "matched": true,
+      "normalized_entropy": 0.18229685333393264,
+      "top_label": "healthy"
+    }
+  ],
+  "schema_version": "1.0",
+  "total_latency_ms": 10775.167022977257
+}

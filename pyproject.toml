@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=75", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,19 +7,20 @@ name = "leafsentry-ai"
 version = "0.1.0"
 description = "Uncertainty-aware bean leaf image triage, built as a production AI engineering reference."
 readme = "README.md"
-requires-python = ">=3.11"
-license = { text = "Apache-2.0" }
+requires-python = ">=3.11,<3.13"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 authors = [{ name = "Irsyad Dzulfikar" }]
 keywords = ["computer-vision", "mlops", "fastapi", "selective-prediction", "uncertainty"]
 classifiers = [
   "Development Status :: 3 - Alpha",
-  "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = [
+  "anyio>=4.0,<5",
   "fastapi>=0.116,<1",
   "numpy>=2.0,<2.4",
   "pillow>=11.0,<13",
@@ -31,15 +32,16 @@ dependencies = [
 
 [project.optional-dependencies]
 ml = [
-  "torch>=2.5,<3",
-  "transformers>=4.49,<5",
+  "torch==2.9.1",
+  "torchvision==0.24.1",
+  "transformers==5.10.1",
 ]
 dev = [
   "build>=1.2,<2",
   "httpx>=0.28,<1",
   "mypy>=1.14,<2",
   "pip-audit>=2.8,<3",
-  "pytest>=8.3,<9",
+  "pytest>=9.0.3,<10",
   "pytest-cov>=6,<8",
   "ruff>=0.9,<1",
   "types-Pillow>=10.2",
@@ -64,9 +66,22 @@ where = ["src"]
 [tool.setuptools.package-data]
 leafsentry = ["static/*"]
 
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+
+[tool.uv]
+required-environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
 [tool.pytest.ini_options]
 addopts = "-ra --strict-config --strict-markers"
 testpaths = ["tests"]
+pythonpath = ["src"]
 markers = ["model: downloads and exercises the pinned production model"]
 
 [tool.coverage.run]

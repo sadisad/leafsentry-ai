@@ -2,7 +2,7 @@
 
 ## Product intent
 
-LeafSentry AI is a portfolio-grade, production-oriented image triage service for bean leaves. It demonstrates the work around a model that matters in real systems: input safety, image-quality checks, calibrated confidence, selective prediction, stable API contracts, observability, evaluation, containerization, and automated verification.
+LeafSentry AI is a portfolio-grade, production-oriented image triage service for bean leaves. It demonstrates the work around a model that matters in real systems: input safety, image-quality checks, uncertainty measurement, selective prediction, stable API contracts, observability, evaluation, containerization, and automated verification.
 
 It is intentionally narrow. The initial model recognizes only `angular_leaf_spot`, `bean_rust`, and `healthy`. The service must abstain rather than force a label when input quality is poor or confidence is insufficient. It is an educational decision-support demo, not a field-validated diagnostic device.
 
@@ -39,7 +39,7 @@ flowchart LR
 1. Read at most `max_upload_bytes + 1`; reject oversized payloads before image decoding.
 2. Verify the media type and the decoded image format; do not trust the filename.
 3. Apply EXIF orientation, convert to RGB, and enforce dimension/pixel limits.
-4. Measure brightness, contrast, and edge variance. Hard failures abstain before inference; softer findings are returned as warnings.
+4. Measure brightness, contrast, and edge variance. Any failed quality heuristic abstains before inference.
 5. Run a predictor through a small protocol so tests never need model weights.
 6. Convert logits to probabilities with a positive temperature.
 7. Return the top classes, normalized entropy, confidence, and top-two margin.
@@ -77,7 +77,7 @@ Malformed, unsupported, or oversized uploads are HTTP 4xx. An unavailable model 
 
 ## Error and safety posture
 
-- Input bytes are never persisted.
+- Application code does not retain uploads. Multipart parsing may spool bytes to temporary disk; uploads are closed after each request.
 - Decompression bombs, extreme dimensions, unsupported formats, empty files, and content-type mismatches are rejected.
 - The model loads lazily so liveness is distinct from readiness.
 - Readiness reports unavailable until the predictor is ready; test/demo injection can be immediately ready.

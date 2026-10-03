@@ -11,11 +11,13 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Annotated
 
+from anyio import CapacityLimiter
 from fastapi import FastAPI, File, Request, UploadFile
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from prometheus_client import CONTENT_TYPE_LATEST, CollectorRegistry, generate_latest
+from starlette.concurrency import run_in_threadpool
 
 from leafsentry.config import Settings
 from leafsentry.errors import LeafSentryError
@@ -31,6 +33,9 @@ _STATIC_DIRECTORY = Path(__file__).with_name("static")
 
 
 def _request_id(request: Request) -> str:
+    existing = getattr(request.state, "request_id", None)
+    if isinstance(existing, str):
+        return existing
     supplied = request.headers.get("x-request-id", "")
     if _REQUEST_ID.fullmatch(supplied):
         return supplied
@@ -71,6 +76,7 @@ def create_app(
     runtime_predictor = predictor or _default_predictor(runtime_settings)
     service = LeafSentryService(settings=runtime_settings, predictor=runtime_predictor)
     metrics = Metrics(registry or CollectorRegistry())
+    inference_limiter = CapacityLimiter(1)
 
     @asynccontextmanager
     async def lifespan(_: FastAPI) -> AsyncIterator[None]:
@@ -81,6 +87,8 @@ def create_app(
         version="0.1.0",
         description="Uncertainty-aware bean leaf image triage.",
         lifespan=lifespan,
+        docs_url=None,
+        redoc_url=None,
     )
     app.state.service = service
     app.state.metrics = metrics
@@ -90,7 +98,9 @@ def create_app(
     async def security_headers(
         request: Request, call_next: Callable[[Request], Awaitable[Response]]
     ) -> Response:
+        request.state.request_id = _request_id(request)
         response = await call_next(request)
+        response.headers["X-Request-ID"] = request.state.request_id
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["X-Frame-Options"] = "DENY"
         response.headers["Referrer-Policy"] = "no-referrer"
@@ -155,6 +165,10 @@ def create_app(
     async def operator_console() -> FileResponse:
         return FileResponse(_STATIC_DIRECTORY / "index.html", media_type="text/html")
 
+    @app.get("/docs", include_in_schema=False)
+    async def api_documentation() -> FileResponse:
+        return FileResponse(_STATIC_DIRECTORY / "api-docs.html", media_type="text/html")
+
     @app.post(
         "/v1/predictions",
         response_model=PredictionResponse,
@@ -165,12 +179,14 @@ def create_app(
         request_id = _request_id(request)
         try:
             payload = await _read_bounded(file, runtime_settings.max_upload_bytes)
-            response = service.predict(
-                payload,
-                media_type=file.content_type or "application/octet-stream",
-                request_id=request_id,
-            )
-        except LeafSentryError:
+            async with inference_limiter:
+                response = await run_in_threadpool(
+                    service.predict,
+                    payload,
+                    media_type=file.content_type or "application/octet-stream",
+                    request_id=request_id,
+                )
+        except Exception:
             metrics.observe(outcome="error", duration_seconds=time.perf_counter() - started)
             raise
         finally:
@@ -179,6 +195,12 @@ def create_app(
         metrics.observe(
             outcome=response.decision.value,
             duration_seconds=time.perf_counter() - started,
+        )
+        _LOGGER.info(
+            "prediction request_id=%s outcome=%s latency_ms=%.2f",
+            request_id,
+            response.decision.value,
+            (time.perf_counter() - started) * 1_000.0,
         )
         return response
 

@@ -1,0 +1,24 @@
+{
+  "model_id": "nateraw/vit-base-beans",
+  "model_revision": "41f85ace09a4613c2c65495b3b8465c4ceee1d00",
+  "samples": [
+    {
+      "filename": "angular_leaf_spot.jpeg",
+      "expected_label": "angular_leaf_spot",
+      "sha256": "a73315bd9ae46d63e55ffe4852186ecbb5eea2cec4655dae43399b8a4bd87254",
+      "url": "https://huggingface.co/nateraw/vit-base-beans/resolve/41f85ace09a4613c2c65495b3b8465c4ceee1d00/angular_leaf_spot.jpeg"
+    },
+    {
+      "filename": "bean_rust.jpeg",
+      "expected_label": "bean_rust",
+      "sha256": "838e1a3e13b2162a8cb40aa30482db356af5dc45d53067a0c03e3eb0a90414c8",
+      "url": "https://huggingface.co/nateraw/vit-base-beans/resolve/41f85ace09a4613c2c65495b3b8465c4ceee1d00/bean_rust.jpeg"
+    },
+    {
+      "filename": "healthy.jpeg",
+      "expected_label": "healthy",
+      "sha256": "21877a35c15fc3187e6d578e332e14366b1ec88bd3041f8326e67bd947ede349",
+      "url": "https://huggingface.co/nateraw/vit-base-beans/resolve/41f85ace09a4613c2c65495b3b8465c4ceee1d00/healthy.jpeg"
+    }
+  ]
+}

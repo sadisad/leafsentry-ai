@@ -1,0 +1,12 @@
+{
+  "accepted": 2,
+  "accuracy": 1.0,
+  "coverage": 0.5,
+  "expected_calibration_error": 0.265,
+  "macro_f1": 1.0,
+  "multiclass_brier": 0.16875,
+  "negative_log_likelihood": 0.3368684319969873,
+  "samples": 4,
+  "selective_accuracy": 1.0,
+  "selective_risk": 0.0
+}
