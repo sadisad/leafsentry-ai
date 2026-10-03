@@ -36,3 +36,7 @@ updates:
       time: "05:00"
       timezone: UTC
     open-pull-requests-limit: 5
+    ignore:
+      # Runtime support is intentionally Python 3.11-3.12; accept only 3.12 patch tags.
+      - dependency-name: python
+        update-types: [version-update:semver-major, version-update:semver-minor]

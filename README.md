@@ -3,9 +3,13 @@
 [![CI](https://github.com/sadisad/leafsentry-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/sadisad/leafsentry-ai/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/sadisad/leafsentry-ai/actions/workflows/codeql.yml/badge.svg)](https://github.com/sadisad/leafsentry-ai/actions/workflows/codeql.yml)
 
+[Live demo](https://leafsentry.syd.my.id) · [API reference](https://leafsentry.syd.my.id/docs) · [Evaluation evidence](docs/evaluation/README.md)
+
 A bean-leaf image-triage service that can abstain. Upload an image, inspect its quality, and receive a versioned decision with confidence, class separation, entropy, and an auditable policy trace.
 
 **Educational decision-support demo; this is not a field-validated diagnosis.**
+
+The public demo runs the pinned CPU model behind HTTPS, a 6 MiB request limit, bounded prediction rate/concurrency, and a loopback-only origin. `/metrics` is not public. It is a portfolio demonstration, not an availability or agricultural-safety commitment.
 
 ![LeafSentry operator console](docs/assets/console-desktop.png)
 
