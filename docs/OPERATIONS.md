@@ -31,6 +31,8 @@ Scrape `/metrics` on a private network. An increase in abstentions requires insp
 
 Provide TLS, access control if needed, body-size/rate/concurrency limits, and header/upload timeouts at the reverse proxy. The application file bound does not protect the earlier multipart parser against arbitrary total request bodies. See [security](../SECURITY.md). No public deployment or uptime claim is made by this repository.
 
+The reference public demo is `https://leafsentry.syd.my.id`. Its checked-in deployment files bind the origin to `127.0.0.1:8010`, cap HTTP request bodies at 6 MiB, rate-limit predictions, restrict `/metrics` to localhost, and keep model loading offline from a pinned cache. The demo is still unauthenticated and carries no availability commitment.
+
 ## Rollback and shutdown
 
 Tag images by immutable Git SHA for a deployment. Keep the previous image and cache volume; rollback by selecting the earlier image, then verify liveness, readiness after inference, and one prediction. `docker compose down` stops the app but retains the model cache. Do not use `down --volumes` unless cache deletion is intended.

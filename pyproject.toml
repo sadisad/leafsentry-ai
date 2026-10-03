@@ -52,7 +52,8 @@ leafsentry = "leafsentry.cli:main"
 leafsentry-api = "leafsentry.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/sadisad/leafsentry-ai"
+Homepage = "https://leafsentry.syd.my.id"
+Demo = "https://leafsentry.syd.my.id"
 Repository = "https://github.com/sadisad/leafsentry-ai"
 Issues = "https://github.com/sadisad/leafsentry-ai/issues"
 

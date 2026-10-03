@@ -14,25 +14,25 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  UV_VERSION: "0.12.20"
+  UV_VERSION: "0.12.22"
 
 jobs:
   quality:
     name: Python ${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.11", "3.12"]
     steps:
       - name: Check out source
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Install Python
-        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install uv
-        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
           version: ${{ env.UV_VERSION }}
           enable-cache: true
@@ -48,7 +48,7 @@ jobs:
         run: uv run --no-sync pytest -m "not model" --cov=leafsentry --cov-report=term-missing --cov-report=xml
       - name: Upload coverage
         if: matrix.python-version == '3.12'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: coverage-python-3.12
           path: coverage.xml
@@ -57,16 +57,16 @@ jobs:
 
   package:
     name: Package
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out source
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Install Python
-        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
       - name: Install uv
-        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
           version: ${{ env.UV_VERSION }}
       - name: Build distributions
@@ -78,7 +78,7 @@ jobs:
           /tmp/leafsentry-wheel/bin/python -c "from leafsentry.api import create_app; assert create_app"
           /tmp/leafsentry-wheel/bin/python -c "from importlib.resources import files; assert files('leafsentry').joinpath('static/index.html').is_file()"
       - name: Upload distributions
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: python-distributions
           path: dist/
@@ -87,14 +87,26 @@ jobs:
 
   container:
     name: Container build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out source
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Validate deployment configuration
+        run: |
+          LEAFSENTRY_IMAGE=leafsentry-ai:${{ github.sha }} docker compose -f deploy/compose.yml config -q
+          mkdir -p /tmp/leafsentry-cert
+          openssl req -x509 -nodes -newkey rsa:2048 -days 1 \
+            -subj '/CN=leafsentry.syd.my.id' \
+            -keyout /tmp/leafsentry-cert/privkey.pem \
+            -out /tmp/leafsentry-cert/fullchain.pem 2>/dev/null
+          docker run --rm \
+            -v "$PWD/deploy/nginx:/etc/nginx/conf.d:ro" \
+            -v "/tmp/leafsentry-cert:/etc/letsencrypt/live/leafsentry.syd.my.id:ro" \
+            nginx:1.24-alpine@sha256:77e5d4a6ad906c5d3793764085706577fa705b1dc6f244ea0241c4b5e2155385 nginx -t
       - name: Build without publishing
-        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
           push: false
@@ -104,16 +116,16 @@ jobs:
 
   dependency-audit:
     name: Dependency audit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out source
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Install Python
-        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
       - name: Install uv
-        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
           version: ${{ env.UV_VERSION }}
       - name: Sync locked development environment
@@ -126,14 +138,14 @@ jobs:
   dependency-review:
     name: Dependency review
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:
       - name: Check out source
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Review dependency changes
-        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
         with:
           fail-on-severity: moderate
           deny-licenses: GPL-3.0, AGPL-3.0

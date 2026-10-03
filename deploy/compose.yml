@@ -1,0 +1,30 @@
+services:
+  api:
+    image: ${LEAFSENTRY_IMAGE:?Set LEAFSENTRY_IMAGE to an immutable release tag}
+    container_name: leafsentry-ai
+    init: true
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8010:8000"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    volumes:
+      - /var/lib/leafsentry/hf-cache:/home/leafsentry/.cache/huggingface
+    environment:
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 2g
+    cpus: 2.0
+    stop_grace_period: 20s
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/live', timeout=2)"]
+      interval: 30s
+      timeout: 3s
+      start_period: 10s
+      retries: 3
