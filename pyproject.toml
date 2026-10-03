@@ -22,7 +22,7 @@ classifiers = [
 dependencies = [
   "anyio>=4.0,<5",
   "fastapi>=0.116,<1",
-  "numpy>=2.0,<2.4",
+  "numpy>=2.0,<2.5",
   "pillow>=11.0,<13",
   "prometheus-client>=0.21,<1",
   "pydantic>=2.10,<3",
@@ -34,12 +34,12 @@ dependencies = [
 ml = [
   "torch==2.13.0",
   "torchvision==0.28.0",
-  "transformers==5.10.1",
+  "transformers==5.17.0",
 ]
 dev = [
   "build>=1.2,<2",
   "httpx>=0.28,<1",
-  "mypy>=1.14,<2",
+  "mypy>=1.14,<3",
   "pip-audit>=2.8,<3",
   "pytest>=9.0.3,<10",
   "pytest-cov>=6,<8",
