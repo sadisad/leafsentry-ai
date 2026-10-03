@@ -1,36 +1,35 @@
 {
   "purpose": "Local verification evidence; not a public deployment or field-validation claim",
   "python_3_12": {
-    "tests_passed": 138,
+    "tests_passed": 152,
     "model_tests_deselected": 1,
-    "coverage_percent": 93.39
+    "coverage_percent": 93.68
   },
   "python_3_11": {
-    "tests_passed": 138,
+    "tests_passed": 152,
     "model_tests_deselected": 1,
-    "coverage_percent": 93.59
+    "coverage_percent": 93.88
   },
-  "real_model_pytest": {
-    "passed": 1
-  },
+  "real_model_pytest": {"passed": 1},
   "quality": {
     "ruff": "passed",
     "format": "passed",
-    "mypy": "passed for 16 source files",
+    "mypy": "passed for 17 source files",
     "actionlint": "passed",
     "wheel_install_and_cli": "passed"
   },
   "runtime_audit": {
     "packages": 46,
     "known_vulnerabilities": 0,
-    "scope": "locked runtime with ML extra; pip-audit, at verification time"
+    "skipped_packages": 0,
+    "scope": "official CPU builds mapped to corresponding upstream release versions for advisory lookup only; pip-audit"
   },
   "secret_scan": {
     "git_history": "gitleaks no leaks found",
     "source": "gitleaks no leaks found"
   },
   "container": {
-    "id": "sha256:7043b03b670c1318f5ba078196cae00054d755ac638b778a6511583d6b6e3771",
+    "id": "sha256:8b4fdf700388a52f936a84afe847ae89599fb8a4e92f65739e338b8d15bdd8cc",
     "uid": 10001,
     "rootfs": "read_only",
     "model_hub_offline": true,
@@ -39,14 +38,11 @@
     "ready_after_inference_http": 200,
     "invalid_input_http": 422,
     "real_prediction": "healthy",
-    "decision": "accepted"
+    "decision": "accepted",
+    "runtime": {"torch": "2.13.0+cpu", "torchvision": "0.28.0+cpu", "transformers": "5.10.1"}
   },
   "browser": {
-    "widths": [
-      390,
-      768,
-      1440
-    ],
+    "widths": [390, 768, 1440],
     "horizontal_overflow": false,
     "console_or_page_errors": 0,
     "real_model_upload_and_docs": "passed"
@@ -54,7 +50,13 @@
   "full_environment_audit": {
     "packages": 79,
     "known_vulnerabilities": 0,
-    "scope": "runtime+ML+development; pip-audit"
+    "skipped_packages": 0,
+    "scope": "runtime+ML+development with official CPU upstream-release advisory lookup"
+  },
+  "audit_gap_remediation": {
+    "previous_cpu_skip": "Earlier PyPI audit skipped +cpu wheel versions; clean result was incomplete",
+    "fixed": "Paired CPU runtime upgraded; CI wrapper fails on skips, incomplete JSON, unknown local versions, or known advisories",
+    "negative_probe": "Old torch 2.9.1 rejected with real known advisories; no packages skipped"
   },
   "review": {
     "initial_verdict": "FAIL: quality threshold NaN allowed",

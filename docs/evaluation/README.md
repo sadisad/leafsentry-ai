@@ -2,7 +2,7 @@
 
 ## Held-out model-level evaluation
 
-[Full report](test-split-report.json), including all 128 sample predictions, confusion matrix, and threshold sweep. Dataset and archive identities are pinned and checksum-verified. Runtime: Python 3.12.3, torch 2.9.1+cpu, torchvision 0.24.1+cpu, Transformers 5.10.1; CPU.
+[Full report](test-split-report.json), including all 128 sample predictions, confusion matrix, and threshold sweep. Dataset and archive identities are pinned and checksum-verified. Runtime: Python 3.12.3, torch 2.13.0+cpu, torchvision 0.28.0+cpu, Transformers 5.10.1; CPU.
 
 | Metric | Observed result |
 |---|---:|
@@ -46,7 +46,7 @@ At confidence 0.80 (margin 0.20), coverage is 98.438% and selective risk 1.587%.
 
 ## Engineering verification
 
-[Local verification JSON](local-verification.json) records the test matrix, coverage, real-model test, wheel/CLI, dependency audit, secret scan, non-root offline container, and [real-model browser QA](browser-qa.json). These are local observations; live CI state is available from the repository Actions badge. Security scans are time-scoped, not safety guarantees.
+[Local verification JSON](local-verification.json) records the test matrix, coverage, real-model test, wheel/CLI, dependency audit, secret scan, non-root offline container, and [real-model browser QA](browser-qa.json). These are local observations; live CI state is available from the repository Actions badge. Security scans are time-scoped, not safety guarantees. [Runtime advisory JSON](upstream-advisory-audit.json) contains zero skipped packages; official CPU-wheel versions are checked against corresponding upstream release numbers, not binary provenance. The previous CPU-wheel skip gap and corrected fail-closed gate are documented in the security policy.
 
 ## Reproduce
 

@@ -12,7 +12,7 @@ A stateless modular monolith separates image safety, model access, selection pol
 
 Raw logits preserve an explicit temperature layer. Temperature 1.0 does not improve calibration by itself. ECE, NLL, Brier score, and accepted-set risk make the limits measurable rather than hiding them behind a confidence threshold.
 
-A CPU-specific lock avoids CUDA dependencies. A runtime audit found issues in an older Transformers pin; the dependency was updated and real inference re-exercised. The API moves synchronous inference to a serialized worker thread, preserving liveness while preventing concurrent lazy loading. A restrictive CSP revealed a broken CDN-backed docs page; a local script-free reference removes that dependency.
+A CPU-specific lock avoids CUDA dependencies. A runtime audit found issues in an older Transformers pin; the dependency was updated and real inference re-exercised. A second check found that pip-audit silently skipped `+cpu` wheel versions. The audit wrapper now queries the corresponding upstream torch/torchvision release versions and fails on skips or incomplete evidence. The paired runtime was upgraded and the model benchmark reproduced. The API moves synchronous inference to a serialized worker thread, preserving liveness while preventing concurrent lazy loading. A restrictive CSP revealed a broken CDN-backed docs page; a local script-free reference removes that dependency.
 
 ## Evidence and interpretation
 

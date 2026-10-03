@@ -120,8 +120,8 @@ jobs:
         run: uv sync --frozen --extra dev --no-install-project
       - name: Audit locked runtime dependencies
         run: |
-          uv export --frozen --no-dev --extra ml --no-emit-project --output-file /tmp/runtime.txt
-          uv run --no-sync pip-audit --no-deps --disable-pip -r /tmp/runtime.txt
+          uv export --frozen --no-dev --extra ml --no-emit-project --no-hashes --output-file /tmp/runtime.txt
+          PYTHONPATH=src uv run --no-sync python scripts/dependency_audit.py /tmp/runtime.txt --output /tmp/audit.json
 
   dependency-review:
     name: Dependency review

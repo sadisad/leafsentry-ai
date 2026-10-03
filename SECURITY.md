@@ -31,8 +31,10 @@ Uploads are not retained by application code, but the multipart parser may spool
 ```bash
 uv sync --frozen --extra dev --no-install-project
 uv run --no-sync ruff check .
-uv export --frozen --no-dev --extra ml --no-emit-project --output-file /tmp/leafsentry-runtime.txt
-uv run --no-sync pip-audit --no-deps --disable-pip -r /tmp/leafsentry-runtime.txt
+uv export --frozen --no-dev --extra ml --no-emit-project --no-hashes --output-file /tmp/leafsentry-runtime.txt
+PYTHONPATH=src uv run --no-sync python scripts/dependency_audit.py /tmp/leafsentry-runtime.txt --output /tmp/leafsentry-audit.json
 ```
 
-The runtime export includes optional ML packages even when the audit environment has not installed weights or ML dependencies. Known issues must be investigated or upgraded, not suppressed to produce a green badge. Audit results are time-scoped; a passing scan is not proof of absence of vulnerabilities.
+The runtime export includes optional ML packages even when the audit environment has not installed weights or ML dependencies. The wrapper maps only official torch/torchvision `+cpu` versions to their upstream release numbers for advisory lookup; installation versions and artifact hashes are unchanged. It fails on skipped packages, incomplete reports, and known advisories. This checks upstream release advisories, not binary provenance or every variant-specific flaw.
+
+An earlier audit returned success while skipping CPU wheels not present on PyPI. The paired runtime was upgraded and this fail-closed wrapper added to prevent a false clean result. Known issues must be investigated or upgraded, not suppressed to produce a green badge. Audit results are time-scoped; a passing scan is not proof of absence of vulnerabilities.

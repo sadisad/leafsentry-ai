@@ -1,6 +1,6 @@
 {
   "all_top1_matched": true,
-  "generated_at": "2026-10-03T08:10:19.527593+00:00",
+  "generated_at": "2026-10-03T10:20:26.907005+00:00",
   "manifest": {
     "model_id": "nateraw/vit-base-beans",
     "model_revision": "41f85ace09a4613c2c65495b3b8465c4ceee1d00",
@@ -32,44 +32,44 @@
   "runtime": {
     "device": "cpu",
     "python": "3.12.3",
-    "torch": "2.9.1+cpu",
+    "torch": "2.13.0+cpu",
     "transformers": "5.10.1"
   },
   "samples": [
     {
-      "confidence": 0.9456097610454881,
+      "confidence": 0.9456097487831566,
       "decision": "accepted",
       "expected_label": "angular_leaf_spot",
       "filename": "angular_leaf_spot.jpeg",
-      "latency_ms": 9677.731398987817,
-      "margin": 0.918136323511486,
+      "latency_ms": 10718.033593002474,
+      "margin": 0.9181363050552416,
       "matched": true,
-      "normalized_entropy": 0.22659689222534563,
+      "normalized_entropy": 0.22659693183515733,
       "top_label": "angular_leaf_spot"
     },
     {
-      "confidence": 0.9499379373765346,
+      "confidence": 0.9499379479190807,
       "decision": "accepted",
       "expected_label": "bean_rust",
       "filename": "bean_rust.jpeg",
-      "latency_ms": 548.1035840057302,
-      "margin": 0.9231503704870982,
+      "latency_ms": 545.1408319931943,
+      "margin": 0.9231503807323521,
       "matched": true,
-      "normalized_entropy": 0.2123360145666683,
+      "normalized_entropy": 0.2123359789358045,
       "top_label": "bean_rust"
     },
     {
-      "confidence": 0.9588060508697004,
+      "confidence": 0.9588060320360554,
       "decision": "accepted",
       "expected_label": "healthy",
       "filename": "healthy.jpeg",
-      "latency_ms": 546.6610409785062,
-      "margin": 0.9381632914553697,
+      "latency_ms": 595.4773779958487,
+      "margin": 0.9381632631839697,
       "matched": true,
-      "normalized_entropy": 0.18229685333393264,
+      "normalized_entropy": 0.18229691917281288,
       "top_label": "healthy"
     }
   ],
   "schema_version": "1.0",
-  "total_latency_ms": 10775.167022977257
+  "total_latency_ms": 11864.902650006115
 }
