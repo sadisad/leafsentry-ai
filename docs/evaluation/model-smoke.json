@@ -1,6 +1,6 @@
 {
   "all_top1_matched": true,
-  "generated_at": "2026-10-03T10:20:26.907005+00:00",
+  "generated_at": "2026-11-20T07:03:39.310480+00:00",
   "manifest": {
     "model_id": "nateraw/vit-base-beans",
     "model_revision": "41f85ace09a4613c2c65495b3b8465c4ceee1d00",
@@ -31,7 +31,7 @@
   },
   "runtime": {
     "device": "cpu",
-    "python": "3.12.3",
+    "python": "3.12.14",
     "torch": "2.13.0+cpu",
     "transformers": "5.10.1"
   },
@@ -41,7 +41,7 @@
       "decision": "accepted",
       "expected_label": "angular_leaf_spot",
       "filename": "angular_leaf_spot.jpeg",
-      "latency_ms": 10718.033593002474,
+      "latency_ms": 14661.938571000064,
       "margin": 0.9181363050552416,
       "matched": true,
       "normalized_entropy": 0.22659693183515733,
@@ -52,7 +52,7 @@
       "decision": "accepted",
       "expected_label": "bean_rust",
       "filename": "bean_rust.jpeg",
-      "latency_ms": 545.1408319931943,
+      "latency_ms": 690.2436919990578,
       "margin": 0.9231503807323521,
       "matched": true,
       "normalized_entropy": 0.2123359789358045,
@@ -63,7 +63,7 @@
       "decision": "accepted",
       "expected_label": "healthy",
       "filename": "healthy.jpeg",
-      "latency_ms": 595.4773779958487,
+      "latency_ms": 597.8757619996031,
       "margin": 0.9381632631839697,
       "matched": true,
       "normalized_entropy": 0.18229691917281288,
@@ -71,5 +71,5 @@
     }
   ],
   "schema_version": "1.0",
-  "total_latency_ms": 11864.902650006115
+  "total_latency_ms": 15956.732574000853
 }
