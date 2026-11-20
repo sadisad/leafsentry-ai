@@ -91,3 +91,11 @@ class ErrorResponse(StrictModel):
 class HealthResponse(StrictModel):
     status: Literal["ok", "ready", "not_ready"]
     model: ModelIdentity
+
+
+class StatsResponse(StrictModel):
+    schema_version: Literal["1.0"] = "1.0"
+    model: ModelIdentity
+    predictions_total: int = Field(ge=0)
+    predictions_by_outcome: dict[str, int]
+    uptime_seconds: int = Field(ge=0)

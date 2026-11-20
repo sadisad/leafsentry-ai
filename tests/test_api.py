@@ -55,6 +55,37 @@ def test_readiness_reports_unavailable_model() -> None:
     assert response.json()["status"] == "not_ready"
 
 
+def test_stats_endpoint_reports_aggregate_counters_without_readiness() -> None:
+    response = request(build_app(predictor=FakePredictor(ready=False)), "GET", "/v1/stats")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["schema_version"] == "1.0"
+    assert body["predictions_total"] == 0
+    assert body["predictions_by_outcome"] == {}
+    assert body["uptime_seconds"] >= 0
+    assert set(body["model"]) == {"id", "revision"}
+
+
+def test_stats_endpoint_counts_reflect_observed_outcomes() -> None:
+    app = build_app()
+    for _ in range(2):
+        request(
+            app,
+            "POST",
+            "/v1/predictions",
+            files={"file": ("leaf.png", textured_png_bytes(), "image/png")},
+        )
+
+    response = request(app, "GET", "/v1/stats")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["predictions_total"] == 2
+    assert sum(body["predictions_by_outcome"].values()) == 2
+    assert set(body["predictions_by_outcome"]) <= {"accepted", "abstained", "error"}
+
+
 def test_prediction_endpoint_returns_versioned_contract_without_filename() -> None:
     response = request(
         build_app(),

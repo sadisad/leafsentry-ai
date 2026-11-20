@@ -23,13 +23,20 @@ from leafsentry.config import Settings
 from leafsentry.errors import LeafSentryError
 from leafsentry.metrics import Metrics
 from leafsentry.prediction import Predictor
-from leafsentry.schemas import ErrorDetail, ErrorResponse, HealthResponse, PredictionResponse
+from leafsentry.schemas import (
+    ErrorDetail,
+    ErrorResponse,
+    HealthResponse,
+    PredictionResponse,
+    StatsResponse,
+)
 from leafsentry.service import LeafSentryService
 
 _LOGGER = logging.getLogger("leafsentry.api")
 _REQUEST_ID = re.compile(r"^[A-Za-z0-9._-]{1,64}$")
 _READ_CHUNK_BYTES = 64 * 1024
 _STATIC_DIRECTORY = Path(__file__).with_name("static")
+_STARTED_MONOTONIC = time.monotonic()
 
 
 def _request_id(request: Request) -> str:
@@ -155,6 +162,17 @@ def create_app(
         return JSONResponse(
             status_code=200 if service.is_ready else 503,
             content=body.model_dump(mode="json"),
+        )
+
+    @app.get("/v1/stats", response_model=StatsResponse, tags=["operations"])
+    async def stats() -> StatsResponse:
+        """Public, aggregate usage counters. Per-request data stays private."""
+        by_outcome = metrics.snapshot()
+        return StatsResponse(
+            model=service.model_identity,
+            predictions_total=sum(by_outcome.values()),
+            predictions_by_outcome=by_outcome,
+            uptime_seconds=int(time.monotonic() - _STARTED_MONOTONIC),
         )
 
     @app.get("/metrics", include_in_schema=False)

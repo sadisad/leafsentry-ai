@@ -29,3 +29,15 @@ class Metrics:
             raise ValueError("unsupported metrics outcome")
         self.predictions.labels(outcome=outcome).inc()
         self.latency.labels(outcome=outcome).observe(max(0.0, duration_seconds))
+
+    def snapshot(self) -> dict[str, int]:
+        """Prediction counts by outcome, for the public stats endpoint.
+
+        Read-only view over the same counters exported at /metrics; values
+        reset when the process restarts, mirroring Prometheus semantics.
+        """
+        counts: dict[str, int] = {}
+        for label_values, child in self.predictions._metrics.items():
+            outcome = label_values[0] if isinstance(label_values, tuple) else label_values
+            counts[str(outcome)] = int(child._value.get())  # type: ignore[attr-defined]
+        return counts
